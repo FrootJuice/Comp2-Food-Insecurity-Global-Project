@@ -3,79 +3,361 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Multi-Genre Project</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Linked to CSS file for styles -->
+    <title>Understanding Food Insecurity</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            background-color: #bf37c4;
-            text-align: center;
+            box-sizing: border-box;
         }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
         header {
-            background: #333;
+            background: linear-gradient(135deg, #2c5f2d 0%, #97bc62 100%);
             color: white;
-            padding: 20px;
-            font-size: 24px;
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-        .container {
-            width: 80%;
-            margin: 20px auto;
-            background: rgb(253, 198, 241);
-            padding: 20px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
         }
-        .toc {
-            text-align: left;
-            margin-top: 20px;
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
         }
-        .toc ul {
+
+        nav {
+            background: #234524;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
             list-style: none;
-            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
         }
-        .toc li {
-            margin: 10px 0;
-        }
-        .toc a {
+
+        nav a {
+            color: white;
             text-decoration: none;
-            color: #00d9ff;
-            font-size: 36px;
+            font-weight: 500;
+            transition: color 0.3s;
         }
-        .toc a:hover {
-            text-decoration: underline;
+
+        nav a:hover {
+            color: #97bc62;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        section {
+            margin-bottom: 4rem;
+        }
+
+        h2 {
+            color: #2c5f2d;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid #97bc62;
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: #234524;
+            font-size: 1.4rem;
+            margin: 1.5rem 0 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            border-top: 4px solid #97bc62;
+        }
+
+        .stat-card .number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #2c5f2d;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card .label {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .info-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #2c5f2d;
+        }
+
+        .info-card h3 {
+            margin-top: 0;
+        }
+
+        ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #2c5f2d 0%, #97bc62 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .cta-section h2 {
+            color: white;
+            border: none;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: white;
+            color: #2c5f2d;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0.5rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        footer {
+            background: #234524;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
         }
     </style>
 </head>
 <body>
-    <header>Multi-Genre Project</header>
-    <div class="qr-container">
-        <img src="schauer_multi_genre_qr.png">
-    </div>    
+    <header>
+        <h1>Food Insecurity at Northwest Missouri State</h1>
+        <p>Understanding and Addressing Hunger Among Bearcat Students</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#what-is">What Is It?</a></li>
+            <li><a href="#statistics">Statistics</a></li>
+            <li><a href="#causes">Causes</a></li>
+            <li><a href="#impacts">Impacts</a></li>
+            <li><a href="#solutions">Solutions</a></li>
+        </ul>
+    </nav>
+
     <div class="container">
-        <h4>
-            The Human Condition: Loss and Artificial Emotions
-        </h4>
-        <div class="button-container">
-            <a href="essay.html" class="page-button essay">Essay</a>
-            <a href="poem.html" class="page-button poem">Poem</a>
-            <a href="artwork.html" class="page-button artwork">Artwork</a>
-        </div>               
-        <h3>
-            <br>
-            Dear Viewer,
-            <br><br>
-            This Project is for my Midterm Multi-Genre Project assignment. For this Project I have chosen to showcase "The Human Condition: Loss and Artificial Emotions". 
-            At the top-middle of the page you will find a QR code. This QR code just links back to this homepage if you disired to view this on a mobile device rather than on desktop.
-            Above this "Dear Viewer" section you will find 3 buttons that go to sub-pages that house different artifacts/genres of the Project.
-            <br><br>
-            I chose the topic of "Loss and Artificial Emotions" because I think that these two ideas tie well together when describing particular aspects of the human condition.
-            The three genre formats that I have decided to use are, "Essay", "Poem", and "Artwork".<br>
-            The Essay is an analysis of various different texts that we have read for this class, picking out examples in the readings that relate to this Project's focus, and explaining the context behind the <i>"whys"</i> and <i>"hows"</i> they relate to the human feeling of Loss and Artificial Emotions.<br>
-            The Poem is a short poem in haiku format, inspired by Robert Frost's <i>"Birches"</i>, that emulates the feelings of loss.<br>
-            The Artwork is a mock marriage certificate/contract from the setting of Shakespeare's play <i>"A Midsummer Night's Dream"</i>. This is to represent how <i>"love"</i> that you believe to be real in the moment isn't actually what it seems. 
-            <br><br>  
-        </h3>
+        <section id="what-is">
+            <h2>What Is College Food Insecurity?</h2>
+            <p>Food insecurity among college students means not having reliable access to affordable, nutritious food. At Northwest Missouri State University, this affects more students than many people realize. It's not just about being hungry between classes—it's about students making impossible choices between buying textbooks, paying rent, or eating regular meals.</p>
+            
+            <p>College food insecurity looks different than you might expect. It includes students skipping meals to save money, relying on ramen noodles for weeks at a time, visiting campus food pantries, or worrying constantly about where their next meal will come from while trying to focus on their education.</p>
+        </section>
+
+        <section id="statistics">
+            <h2>The Reality at Northwest</h2>
+            <div class="stats">
+                <div class="stat-card">
+                    <span class="number">39%</span>
+                    <span class="label">College students nationally experience food insecurity</span>
+                </div>
+                <div class="stat-card">
+                    <span class="number">1 in 3</span>
+                    <span class="label">Students skip meals due to cost</span>
+                </div>
+                <div class="stat-card">
+                    <span class="number">45%</span>
+                    <span class="label">Students at rural universities affected</span>
+                </div>
+                <div class="stat-card">
+                    <span class="number">$240</span>
+                    <span class="label">Average monthly food budget for struggling students</span>
+                </div>
+            </div>
+            <p>Maryville, Missouri's rural location adds unique challenges. Limited public transportation, fewer grocery options, and distance from family support systems mean Northwest students face particular obstacles in accessing affordable, nutritious food.</p>
+        </section>
+
+        <section id="causes">
+            <h2>Why Northwest Students Go Hungry</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Financial Pressures</h3>
+                    <ul>
+                        <li>Rising tuition and fees</li>
+                        <li>Expensive textbooks and course materials</li>
+                        <li>Limited work-study opportunities</li>
+                        <li>Part-time jobs conflicting with class schedules</li>
+                        <li>Unexpected expenses (car repairs, medical bills)</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>Maryville-Specific Challenges</h3>
+                    <ul>
+                        <li>Limited grocery store options</li>
+                        <li>No public transportation system</li>
+                        <li>Distance from family support</li>
+                        <li>Higher costs for students without cars</li>
+                        <li>Meal plan gaps during breaks</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>Systemic Barriers</h3>
+                    <ul>
+                        <li>Stigma around asking for help</li>
+                        <li>Lack of awareness about campus resources</li>
+                        <li>Limited hours at food assistance locations</li>
+                        <li>SNAP eligibility restrictions for students</li>
+                        <li>Housing insecurity affecting food storage</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="impacts">
+            <h2>How Hunger Affects Bearcat Success</h2>
+            
+            <h3>Academic Performance</h3>
+            <p>Students dealing with food insecurity have lower GPAs, higher rates of withdrawal from courses, and take longer to graduate. It's nearly impossible to concentrate on a lecture or study for exams when you're wondering where your next meal will come from. Research shows food-insecure students are 30% more likely to drop out.</p>
+
+            <h3>Physical and Mental Health</h3>
+            <p>Skipping meals leads to fatigue, weakened immune systems, and difficulty concentrating. The constant stress of food insecurity contributes to anxiety and depression, creating a cycle that makes it even harder to succeed academically and maintain social connections.</p>
+
+            <h3>Social Isolation</h3>
+            <p>Students experiencing food insecurity often withdraw from social activities that involve food—skipping study groups at coffee shops, avoiding dining hall hangouts, or making excuses not to go out with friends. This isolation compounds the stress and makes college feel even more overwhelming.</p>
+
+            <h3>Long-term Consequences</h3>
+            <p>Food insecurity in college can lead to increased student loan debt (from emergency borrowing), delayed graduation, health problems that persist after graduation, and reduced earning potential due to lower academic performance.</p>
+        </section>
+
+        <section id="solutions">
+            <h2>Resources & Solutions at Northwest</h2>
+            
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>On-Campus Help</h3>
+                    <ul>
+                        <li>Bearcat Pantry (contact Student Affairs)</li>
+                        <li>Emergency meal vouchers through Dean of Students</li>
+                        <li>Financial aid office emergency funds</li>
+                        <li>Work-study and on-campus employment</li>
+                        <li>Counseling services for support</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>Community Resources</h3>
+                    <ul>
+                        <li>Maryville Community Food Pantry</li>
+                        <li>Local churches with meal programs</li>
+                        <li>SNAP benefits (if eligible)</li>
+                        <li>Salvation Army assistance</li>
+                        <li>United Way of Nodaway County</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>How to Help</h3>
+                    <ul>
+                        <li>Donate to campus food pantry</li>
+                        <li>Share information with struggling peers</li>
+                        <li>Volunteer at local food banks</li>
+                        <li>Advocate for expanded meal plan options</li>
+                        <li>Reduce stigma by talking openly</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Breaking the Stigma</h3>
+            <p>Using food assistance isn't a sign of failure—it's a smart use of available resources. Many successful alumni used campus food pantries during tough semesters. If you're struggling, you're not alone, and reaching out for help is a sign of strength, not weakness.</p>
+        </section>
+
+        <div class="cta-section">
+            <h2>Get Help or Get Involved</h2>
+            <p>Whether you need assistance or want to help fellow Bearcats, resources are available. No Northwest student should have to choose between their education and their next meal.</p>
+            <a href="#" class="btn">Find Campus Resources</a>
+            <a href="#" class="btn">Donate to Bearcat Pantry</a>
+            <a href="#" class="btn">Volunteer</a>
+        </div>
     </div>
+
+    <footer>
+        <p>&copy; 2024 Northwest Food Insecurity Awareness Project | Together, Bearcats take care of Bearcats.</p>
+    </footer>
 </body>
 </html>
