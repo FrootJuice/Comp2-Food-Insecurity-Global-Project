@@ -207,6 +207,52 @@
                 padding: 2rem 1rem;
             }
         }
+
+        /* Modal/Popup styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 400px;
+            text-align: center;
+            position: relative;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            line-height: 20px;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+        }
+
+        .modal-content img {
+            max-width: 100%;
+            margin: 1rem 0;
+        }
+
+        .modal-content h3 {
+            color: #2c5f2d;
+            margin-bottom: 1rem;
+        }
     </style>
 </head>
 <body>
@@ -349,11 +395,42 @@
         <div class="cta-section">
             <h2>Get Help or Get Involved</h2>
             <p>Whether you need assistance or want to help fellow Bearcats, resources are available. No Northwest student should have to choose between their education and their next meal.</p>
-            <a href="#" class="btn">Find Campus Resources</a>
-            <a href="#" class="btn">Donate to Bearcat Pantry</a>
-            <a href="#" class="btn">Volunteer</a>
+            <a href="#" class="resources.html">Find Helpful Resources</a>
+            <a href="#" class="https://www.nwmissouri.edu/studentaffairs/foodpantry/index.htm">Donate to the Bearcat Food Pantry</a>
+            <a href="#" class="btn" onclick="openModal(); return false;">Share this Website</a>
         </div>
     </div>
+
+    <!-- QR Code Modal -->
+    <div id="qrModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3>Share This Website</h3>
+            <p>Scan this QR code to visit the site:</p>
+            <img src="qr.png" alt="QR Code">
+            <p style="font-size: 0.9rem; color: #666; margin-top: 1rem;">
+                https://comp2-food-insecurity-global-project.netlify.app
+            </p>
+        </div>
+    </div>
+
+    <script>
+    function openModal() {
+        document.getElementById('qrModal').style.display = 'block';
+    }
+
+    function closeModal() {
+        document.getElementById('qrModal').style.display = 'none';
+    }
+
+    // Close modal when clicking outside of it
+    window.onclick = function(event) {
+        var modal = document.getElementById('qrModal');
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    }
+    </script>
 
     <footer>
         <p>&copy;  2025 Ethan Schauer | Comp 112 Global Project</p>
